@@ -6,12 +6,19 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
 <body>
-<p align="center"><h2><ins> Animals Book</ins>&#128213</h2></p> <br>
-
-<td>&#128270 Search for animal by name:</td>
-  <td><form action="http://localhost:8080/search"><input name="criterion"></td>
-  <td><input type="submit"></form></td>
-
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+<p><h2><ins> Animals Book</ins>&#128213</h2></p> <br>
+    <td><form action="http://localhost:8080/form">
+      <a href="#"th:href="@{/form}"class="btn btn-outline-success me-2">
+        <i class="fa fa-trash-o fa-lg"></i>Add</a></td></form>
+  <div>
+<form class="d-flex" action="http://localhost:8080/search">
+      <input name="criterion" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+  <button  class="btn btn-outline-dark" type="submit">Search</button></form>
+  </div>
+  </div>
+</nav>
 
 <table class="table table-secondary table-gradient table-striped">
   <tbody>
@@ -20,6 +27,8 @@
     <th scope="col">Names &#128261</th>
     <th scope="col">Sizes &#128228</th>
     <th scope="col">Weight &#128230</th>
+    <th></th>
+    <th></th>
   </tr>
   <tr  th:each="wpis: ${animal}">
     <td th:text="${wpis.type}">Types</td>
@@ -28,15 +37,15 @@
     <td th:text="${wpis.weight}">weight</td>
 
     <td>
-      <a href="#" th:href="@{/delete(id=${wpis.id})}" class="btn btn-danger">
+      <a href="#"th:href="@{/delete(id=${wpis.id})}"class="btn btn-danger">
 
         <i class="fa fa-trash-o fa-lg"></i>Delete</a></td>
 
 
     <td>
-      <a href="#" th:href="@{/redirect(id=${wpis.id})}" class="btn btn-primary">
+      <a href="#"th:href="@{/redirect(id=${wpis.id})}"class="btn btn-primary">
 
-        <i class="fa fa-trash-o fa-lg"></i>Update</a></td>
+        <i class="fa fa-trash-o fa-lg"></i>Edit</a></td>
 
   </tr>
   </tbody>

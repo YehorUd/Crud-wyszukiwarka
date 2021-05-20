@@ -24,7 +24,7 @@ public class Controlee {
         System.out.println(animal);
         animalRepo.save(animal);
         model.addAttribute("animal", animal);
-        return "Show";
+        return "View";
     }
     @RequestMapping("/form")
     public String addData(){return "Form";}
@@ -42,7 +42,7 @@ public class Controlee {
     }
     @RequestMapping("/search")
     public String search(@RequestParam("criterion") String criterion, Model model){
-        model.addAttribute("animal", animalRepo.findAllByName(criterion));
+        model.addAttribute("animal", animalRepo.findByName(criterion));
         return "Show";
     }
     @RequestMapping("/redirect")
